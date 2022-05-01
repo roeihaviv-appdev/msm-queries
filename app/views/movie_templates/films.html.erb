@@ -1,17 +1,17 @@
 <h1>List of all movies</h1>
 
 <table border="1">
-<% @list_of_movies.all.each do |a_thing| %>
+<% Movie.all.each do |somthing| %>
 <tr>
-  <td><%= a_thing.id %></td>
+  <td><%= somthing.id %></td>
   <td>
-    <img src="<%= a_thing.image %>">
+    <img src="<%= somthing.image %>">
   </td>
-  <td><%= a_thing.title %></td>
-  <td><%= a_thing.year %></td>
-  <td><%= a_thing.director %></td>
+  <td><%= somthing.title %></td>
+  <td><%= somthing.year %></td>
+  <td><%= @filmography %></td>
   <td>
-    <a href="/movies/<%= a_thing.id %>">
+    <a href="/movies/<%= somthing.id %>">
       Show details
     </a>
   </td>
