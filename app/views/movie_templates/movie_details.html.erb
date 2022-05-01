@@ -14,7 +14,7 @@
 </a>
 
 <hr>
-
+<% Movie.all.each do |a_film| %>
 <dl>
   <dt>
     Title
@@ -22,7 +22,6 @@
   <dd>
     <%= @the_movie.title %>
   </dd>
-
   <dt>
     Year
   </dt>
@@ -55,8 +54,8 @@
     Director
   </dt>
   <dd>
-      <%= @director_name %>
-
+      <% d = Director.where({ :id => a_film.director_id }).at(0) %>
+      <%= d.name %> 
   </dd>
 
   <dt>
@@ -73,3 +72,4 @@
     over 6 years ago
   </dd>
 </dl>
+<% end %>

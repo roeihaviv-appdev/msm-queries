@@ -39,7 +39,8 @@ class DirectorsController < ApplicationController
     the_id = params.fetch("an_id")
 
     @the_movie = Movie.where({ :id => the_id }).at(0)
-    @director_name = Director.name
+    @the_director = Director.where({ :id => the_id }).at(0)
+    @filmography = Movie.where({ :director_id => @the_director.id })
 
     render({ :template => "movie_templates/movie_details.html.erb"})
   end
@@ -56,6 +57,7 @@ class DirectorsController < ApplicationController
     @the_actor = Actor.where({ :id => the_id }).at(0)
     @the_director = Director.where({ :id => the_id }).at(0)
     @filmography = Movie.where({ :id => @the_actor.id })
+    @the_character = Character.where({ :id => the_id }).at(0)
 
     render({ :template => "actor_templates/actor_details.html.erb"})
   end
